@@ -91,7 +91,7 @@ def getString(string):
 def getPrice(price):
 	return price.split()[0]
 
-#use list comprehensior to apply the name function on our dataframe
+#use list comprehension to apply the name function on our dataframe
 cryptodex_data['Name'] = cryptodex_data['Name'].apply(getString)
 cryptodex_data['Price'] = cryptodex_data['Price'].apply(getPrice)
 
