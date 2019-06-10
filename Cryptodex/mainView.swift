@@ -10,14 +10,13 @@ import UIKit
 
 class mainView: UIView {
     
-    let helloWorld = UILabel(frame: CGRect(x: 100, y: 100, width: 200, height: 100))
+    var header: headerView!
 
     override init(frame: CGRect) {
         super.init(frame:frame)
-        
-        helloWorld.text = "Cryptodex"
-        helloWorld.textColor = .lightGray
-        addSubview(helloWorld)
+
+        header = headerView(frame:frame)
+        addSubview(header)
     }
     
     required init?(coder aDecoder: NSCoder) {

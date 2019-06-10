@@ -11,7 +11,7 @@ import UIKit
 class ViewController: UIViewController {
 
     var main: mainView!
-    
+
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return .lightContent
     }
