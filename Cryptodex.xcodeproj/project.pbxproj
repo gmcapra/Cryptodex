@@ -1,0 +1,475 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		66EBDCAD22AEEB3F00BE1225 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66EBDCAC22AEEB3F00BE1225 /* AppDelegate.swift */; };
+		66EBDCAF22AEEB3F00BE1225 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66EBDCAE22AEEB3F00BE1225 /* ViewController.swift */; };
+		66EBDCB522AEEB3F00BE1225 /* Cryptodex.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 66EBDCB322AEEB3F00BE1225 /* Cryptodex.xcdatamodeld */; };
+		66EBDCB722AEEB4300BE1225 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 66EBDCB622AEEB4300BE1225 /* Assets.xcassets */; };
+		66EBDCBA22AEEB4300BE1225 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 66EBDCB822AEEB4300BE1225 /* LaunchScreen.storyboard */; };
+		66EBDCC522AEEB4400BE1225 /* CryptodexTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66EBDCC422AEEB4400BE1225 /* CryptodexTests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		66EBDCC122AEEB4400BE1225 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 66EBDCA122AEEB3F00BE1225 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 66EBDCA822AEEB3F00BE1225;
+			remoteInfo = Cryptodex;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		66EBDCA922AEEB3F00BE1225 /* Cryptodex.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Cryptodex.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		66EBDCAC22AEEB3F00BE1225 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		66EBDCAE22AEEB3F00BE1225 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		66EBDCB422AEEB3F00BE1225 /* Cryptodex.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Cryptodex.xcdatamodel; sourceTree = "<group>"; };
+		66EBDCB622AEEB4300BE1225 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		66EBDCB922AEEB4300BE1225 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		66EBDCBB22AEEB4300BE1225 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		66EBDCC022AEEB4400BE1225 /* CryptodexTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CryptodexTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		66EBDCC422AEEB4400BE1225 /* CryptodexTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptodexTests.swift; sourceTree = "<group>"; };
+		66EBDCC622AEEB4400BE1225 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		66EBDCA622AEEB3F00BE1225 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		66EBDCBD22AEEB4400BE1225 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		66EBDCA022AEEB3F00BE1225 = {
+			isa = PBXGroup;
+			children = (
+				66EBDCAB22AEEB3F00BE1225 /* Cryptodex */,
+				66EBDCC322AEEB4400BE1225 /* CryptodexTests */,
+				66EBDCAA22AEEB3F00BE1225 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		66EBDCAA22AEEB3F00BE1225 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				66EBDCA922AEEB3F00BE1225 /* Cryptodex.app */,
+				66EBDCC022AEEB4400BE1225 /* CryptodexTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		66EBDCAB22AEEB3F00BE1225 /* Cryptodex */ = {
+			isa = PBXGroup;
+			children = (
+				66EBDCAC22AEEB3F00BE1225 /* AppDelegate.swift */,
+				66EBDCAE22AEEB3F00BE1225 /* ViewController.swift */,
+				66EBDCB622AEEB4300BE1225 /* Assets.xcassets */,
+				66EBDCB822AEEB4300BE1225 /* LaunchScreen.storyboard */,
+				66EBDCBB22AEEB4300BE1225 /* Info.plist */,
+				66EBDCB322AEEB3F00BE1225 /* Cryptodex.xcdatamodeld */,
+			);
+			path = Cryptodex;
+			sourceTree = "<group>";
+		};
+		66EBDCC322AEEB4400BE1225 /* CryptodexTests */ = {
+			isa = PBXGroup;
+			children = (
+				66EBDCC422AEEB4400BE1225 /* CryptodexTests.swift */,
+				66EBDCC622AEEB4400BE1225 /* Info.plist */,
+			);
+			path = CryptodexTests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		66EBDCA822AEEB3F00BE1225 /* Cryptodex */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 66EBDCC922AEEB4400BE1225 /* Build configuration list for PBXNativeTarget "Cryptodex" */;
+			buildPhases = (
+				66EBDCA522AEEB3F00BE1225 /* Sources */,
+				66EBDCA622AEEB3F00BE1225 /* Frameworks */,
+				66EBDCA722AEEB3F00BE1225 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Cryptodex;
+			productName = Cryptodex;
+			productReference = 66EBDCA922AEEB3F00BE1225 /* Cryptodex.app */;
+			productType = "com.apple.product-type.application";
+		};
+		66EBDCBF22AEEB4400BE1225 /* CryptodexTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 66EBDCCC22AEEB4400BE1225 /* Build configuration list for PBXNativeTarget "CryptodexTests" */;
+			buildPhases = (
+				66EBDCBC22AEEB4400BE1225 /* Sources */,
+				66EBDCBD22AEEB4400BE1225 /* Frameworks */,
+				66EBDCBE22AEEB4400BE1225 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				66EBDCC222AEEB4400BE1225 /* PBXTargetDependency */,
+			);
+			name = CryptodexTests;
+			productName = CryptodexTests;
+			productReference = 66EBDCC022AEEB4400BE1225 /* CryptodexTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		66EBDCA122AEEB3F00BE1225 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1020;
+				LastUpgradeCheck = 1020;
+				ORGANIZATIONNAME = toggle;
+				TargetAttributes = {
+					66EBDCA822AEEB3F00BE1225 = {
+						CreatedOnToolsVersion = 10.2.1;
+					};
+					66EBDCBF22AEEB4400BE1225 = {
+						CreatedOnToolsVersion = 10.2.1;
+						TestTargetID = 66EBDCA822AEEB3F00BE1225;
+					};
+				};
+			};
+			buildConfigurationList = 66EBDCA422AEEB3F00BE1225 /* Build configuration list for PBXProject "Cryptodex" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 66EBDCA022AEEB3F00BE1225;
+			productRefGroup = 66EBDCAA22AEEB3F00BE1225 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				66EBDCA822AEEB3F00BE1225 /* Cryptodex */,
+				66EBDCBF22AEEB4400BE1225 /* CryptodexTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		66EBDCA722AEEB3F00BE1225 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				66EBDCBA22AEEB4300BE1225 /* LaunchScreen.storyboard in Resources */,
+				66EBDCB722AEEB4300BE1225 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		66EBDCBE22AEEB4400BE1225 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		66EBDCA522AEEB3F00BE1225 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				66EBDCB522AEEB3F00BE1225 /* Cryptodex.xcdatamodeld in Sources */,
+				66EBDCAF22AEEB3F00BE1225 /* ViewController.swift in Sources */,
+				66EBDCAD22AEEB3F00BE1225 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		66EBDCBC22AEEB4400BE1225 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				66EBDCC522AEEB4400BE1225 /* CryptodexTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		66EBDCC222AEEB4400BE1225 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 66EBDCA822AEEB3F00BE1225 /* Cryptodex */;
+			targetProxy = 66EBDCC122AEEB4400BE1225 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		66EBDCB822AEEB4300BE1225 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				66EBDCB922AEEB4300BE1225 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		66EBDCC722AEEB4400BE1225 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		66EBDCC822AEEB4400BE1225 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		66EBDCCA22AEEB4400BE1225 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = JKSB248FRK;
+				INFOPLIST_FILE = Cryptodex/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = toggle.Cryptodex;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		66EBDCCB22AEEB4400BE1225 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = JKSB248FRK;
+				INFOPLIST_FILE = Cryptodex/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = toggle.Cryptodex;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		66EBDCCD22AEEB4400BE1225 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = JKSB248FRK;
+				INFOPLIST_FILE = CryptodexTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = toggle.CryptodexTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Cryptodex.app/Cryptodex";
+			};
+			name = Debug;
+		};
+		66EBDCCE22AEEB4400BE1225 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = JKSB248FRK;
+				INFOPLIST_FILE = CryptodexTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = toggle.CryptodexTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Cryptodex.app/Cryptodex";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		66EBDCA422AEEB3F00BE1225 /* Build configuration list for PBXProject "Cryptodex" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				66EBDCC722AEEB4400BE1225 /* Debug */,
+				66EBDCC822AEEB4400BE1225 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		66EBDCC922AEEB4400BE1225 /* Build configuration list for PBXNativeTarget "Cryptodex" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				66EBDCCA22AEEB4400BE1225 /* Debug */,
+				66EBDCCB22AEEB4400BE1225 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		66EBDCCC22AEEB4400BE1225 /* Build configuration list for PBXNativeTarget "CryptodexTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				66EBDCCD22AEEB4400BE1225 /* Debug */,
+				66EBDCCE22AEEB4400BE1225 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		66EBDCB322AEEB3F00BE1225 /* Cryptodex.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				66EBDCB422AEEB3F00BE1225 /* Cryptodex.xcdatamodel */,
+			);
+			currentVersion = 66EBDCB422AEEB3F00BE1225 /* Cryptodex.xcdatamodel */;
+			path = Cryptodex.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = 66EBDCA122AEEB3F00BE1225 /* Project object */;
+}
