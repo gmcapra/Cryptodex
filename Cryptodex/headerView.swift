@@ -12,12 +12,17 @@ class headerView: UIView {
     
     var removeContact = UIButton()
     var addContact = UIButton()
-    
+
     let appName = UILabel()
 
-    override init(frame: CGRect) {
-        super.init(frame:frame)
+    let screen = ScreenDimensions()
+
+    init() {
+        let headerOrigin = CGPoint(x: 0, y: screen.statusBarHeight)
+        let headerSize = CGSize(width: screen.width, height: screen.headerHeight)
+        super.init(frame: CGRect(origin: headerOrigin, size: headerSize))
         
+        backgroundColor = .black
         buildView()
     }
     
@@ -27,24 +32,24 @@ class headerView: UIView {
             addSubview(btn)
             btn.translatesAutoresizingMaskIntoConstraints = false
             btn.backgroundColor = .lightGray
-            setConstraint(to: btn, from: self, on: .height, and: .height, mult: 0, constant: 44)
-            setConstraint(to: btn, from: self, on: .width, and: .width, mult: 0, constant: 44)
-            setConstraint(to: btn, from: self, on: .top, and: .top, mult: 1, constant: 50)
+            setConstraint(to: btn, from: self, on: .height, and: .height, mult: 0.8, constant: 0)
+            setConstraint(to: btn, from: self, on: .width, and: .height, mult: 0.8, constant: 0)
+            setConstraint(to: btn, from: self, on: .top, and: .top, mult: 1, constant: CGFloat(screen.headerHeight*0.1))
         }
-        setConstraint(to: removeContact, from: self, on: .leading, and: .leading, mult: 1, constant: 22)
-        setConstraint(to: addContact, from: self, on: .trailing, and: .trailing, mult: 1, constant: -22)
+        setConstraint(to: removeContact, from: self, on: .leading, and: .leading, mult: 1, constant: CGFloat(screen.statusBarHeight/2))
+        setConstraint(to: addContact, from: self, on: .trailing, and: .trailing, mult: 1, constant: -CGFloat(screen.statusBarHeight/2))
         
         addSubview(appName)
         appName.translatesAutoresizingMaskIntoConstraints = false
         appName.text = "Cryptodex"
         appName.textColor = .lightGray
         appName.textAlignment = .center
-        appName.font = UIFont.systemFont(ofSize: 40.0)
+        appName.font = UIFont.systemFont(ofSize: 30.0)
         //label.font = UIFont(name:"fontname", size: 20.0)
-        setConstraint(to: appName, from: self, on: .height, and: .height, mult: 0, constant: 44)
-        setConstraint(to: appName, from: self, on: .width, and: .width, mult: 0, constant: 200)
+        setConstraint(to: appName, from: self, on: .height, and: .height, mult: 0.8, constant: 0)
+        setConstraint(to: appName, from: self, on: .width, and: .width, mult: 1, constant: -132)
         setConstraint(to: appName, from: self, on: .centerX, and: .centerX, mult: 1, constant: 0)
-        setConstraint(to: appName, from: self, on: .top, and: .top, mult: 1, constant: 50)
+        setConstraint(to: appName, from: self, on: .top, and: .top, mult: 1, constant: CGFloat(screen.headerHeight*0.1))
 
     }
     

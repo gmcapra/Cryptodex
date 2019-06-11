@@ -10,16 +10,17 @@ import UIKit
 
 class ViewController: UIViewController {
 
-    var main: mainView!
-
+    var header: headerView!
+      
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return .lightContent
     }
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        main = mainView(frame: view.frame)
-        view.addSubview(main)
+
+        header = headerView()
+        view.addSubview(header)
     }
 
 }
