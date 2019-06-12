@@ -7,14 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		66C481DA22B07D9900B7E5FF /* ContactsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66C481D922B07D9900B7E5FF /* ContactsView.swift */; };
+		66C481DC22B07E3600B7E5FF /* ContactsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66C481DB22B07E3600B7E5FF /* ContactsCell.swift */; };
 		66EBDCAD22AEEB3F00BE1225 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66EBDCAC22AEEB3F00BE1225 /* AppDelegate.swift */; };
 		66EBDCAF22AEEB3F00BE1225 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66EBDCAE22AEEB3F00BE1225 /* ViewController.swift */; };
 		66EBDCB522AEEB3F00BE1225 /* Cryptodex.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 66EBDCB322AEEB3F00BE1225 /* Cryptodex.xcdatamodeld */; };
 		66EBDCB722AEEB4300BE1225 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 66EBDCB622AEEB4300BE1225 /* Assets.xcassets */; };
 		66EBDCBA22AEEB4300BE1225 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 66EBDCB822AEEB4300BE1225 /* LaunchScreen.storyboard */; };
 		66EBDCC522AEEB4400BE1225 /* CryptodexTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66EBDCC422AEEB4400BE1225 /* CryptodexTests.swift */; };
-		66EBDCD222AF170100BE1225 /* headerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66EBDCD122AF170100BE1225 /* headerView.swift */; };
-		66EBDCD422B0587C00BE1225 /* screenSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66EBDCD322B0587C00BE1225 /* screenSize.swift */; };
+		66EBDCD222AF170100BE1225 /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66EBDCD122AF170100BE1225 /* HeaderView.swift */; };
+		66EBDCD422B0587C00BE1225 /* ScreenDimensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66EBDCD322B0587C00BE1225 /* ScreenDimensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -28,6 +30,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		66C481D922B07D9900B7E5FF /* ContactsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsView.swift; sourceTree = "<group>"; };
+		66C481DB22B07E3600B7E5FF /* ContactsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsCell.swift; sourceTree = "<group>"; };
 		66EBDCA922AEEB3F00BE1225 /* Cryptodex.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Cryptodex.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		66EBDCAC22AEEB3F00BE1225 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		66EBDCAE22AEEB3F00BE1225 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -38,8 +42,8 @@
 		66EBDCC022AEEB4400BE1225 /* CryptodexTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CryptodexTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		66EBDCC422AEEB4400BE1225 /* CryptodexTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptodexTests.swift; sourceTree = "<group>"; };
 		66EBDCC622AEEB4400BE1225 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		66EBDCD122AF170100BE1225 /* headerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = headerView.swift; sourceTree = "<group>"; };
-		66EBDCD322B0587C00BE1225 /* screenSize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = screenSize.swift; sourceTree = "<group>"; };
+		66EBDCD122AF170100BE1225 /* HeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
+		66EBDCD322B0587C00BE1225 /* ScreenDimensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenDimensions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -82,9 +86,11 @@
 			isa = PBXGroup;
 			children = (
 				66EBDCAC22AEEB3F00BE1225 /* AppDelegate.swift */,
+				66EBDCD322B0587C00BE1225 /* ScreenDimensions.swift */,
 				66EBDCAE22AEEB3F00BE1225 /* ViewController.swift */,
-				66EBDCD322B0587C00BE1225 /* screenSize.swift */,
-				66EBDCD122AF170100BE1225 /* headerView.swift */,
+				66EBDCD122AF170100BE1225 /* HeaderView.swift */,
+				66C481D922B07D9900B7E5FF /* ContactsView.swift */,
+				66C481DB22B07E3600B7E5FF /* ContactsCell.swift */,
 				66EBDCB622AEEB4300BE1225 /* Assets.xcassets */,
 				66EBDCB822AEEB4300BE1225 /* LaunchScreen.storyboard */,
 				66EBDCBB22AEEB4300BE1225 /* Info.plist */,
@@ -202,11 +208,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				66EBDCD222AF170100BE1225 /* headerView.swift in Sources */,
+				66EBDCD222AF170100BE1225 /* HeaderView.swift in Sources */,
 				66EBDCB522AEEB3F00BE1225 /* Cryptodex.xcdatamodeld in Sources */,
 				66EBDCAF22AEEB3F00BE1225 /* ViewController.swift in Sources */,
-				66EBDCD422B0587C00BE1225 /* screenSize.swift in Sources */,
+				66C481DA22B07D9900B7E5FF /* ContactsView.swift in Sources */,
+				66EBDCD422B0587C00BE1225 /* ScreenDimensions.swift in Sources */,
 				66EBDCAD22AEEB3F00BE1225 /* AppDelegate.swift in Sources */,
+				66C481DC22B07E3600B7E5FF /* ContactsCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

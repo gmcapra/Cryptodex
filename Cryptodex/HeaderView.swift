@@ -8,7 +8,7 @@
 
 import UIKit
 
-class headerView: UIView {
+class HeaderView: UIView {
     
     var removeContact = UIButton()
     var addContact = UIButton()
@@ -18,10 +18,10 @@ class headerView: UIView {
     let screen = ScreenDimensions()
 
     init() {
-        let headerOrigin = CGPoint(x: 0, y: screen.statusBarHeight)
-        let headerSize = CGSize(width: screen.width, height: screen.headerHeight)
-        super.init(frame: CGRect(origin: headerOrigin, size: headerSize))
-        
+        let viewOrigin = CGPoint(x: 0, y: screen.statusBarHeight)
+        let viewSize = CGSize(width: screen.width, height: screen.headerHeight)
+        super.init(frame: CGRect(origin: viewOrigin, size: viewSize))
+
         backgroundColor = .black
         buildView()
     }

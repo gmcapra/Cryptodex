@@ -10,7 +10,8 @@ import UIKit
 
 class ViewController: UIViewController {
 
-    var header: headerView!
+    var header: HeaderView!
+    var contacts: ContactsView!
       
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return .lightContent
@@ -19,8 +20,10 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        header = headerView()
+        header = HeaderView()
+        contacts = ContactsView()
         view.addSubview(header)
+        view.addSubview(contacts)
     }
 
 }
