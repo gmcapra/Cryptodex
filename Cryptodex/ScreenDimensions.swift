@@ -21,8 +21,8 @@ struct ScreenDimensions {
     let tableViewHeight: Double
     let adBannerHeight: Double
     
-    let headerRatio: Double = 0.056
-    let tableViewRatio: Double = 0.854
+    let headerRatio: Double = 0.07
+    let tableViewRatio: Double = 0.84
     let adBannerRatio: Double = 0.09
     
     init() {

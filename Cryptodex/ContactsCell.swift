@@ -10,28 +10,28 @@ import UIKit
 
 class ContactsCell: UITableViewCell {
 
-    let appName = UILabel()
+    let cellLabel = UILabel()
 
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
 
-        backgroundColor = .darkGray
+        backgroundColor = .lightGray
         buildView()
     }
     
     func buildView() {
         
-        addSubview(appName)
-        appName.translatesAutoresizingMaskIntoConstraints = false
-        appName.text = "lookatthisgreatwalletid"
-        appName.textColor = .lightGray
-        appName.textAlignment = .left
-        appName.font = UIFont.systemFont(ofSize: 15.0)
+        addSubview(cellLabel)
+        cellLabel.translatesAutoresizingMaskIntoConstraints = false
+        cellLabel.text = "lookatthisgreatwalletid"
+        cellLabel.textColor = .black
+        cellLabel.textAlignment = .left
+        cellLabel.font = UIFont.systemFont(ofSize: 15.0)
         //label.font = UIFont(name:"fontname", size: 20.0)
-        setConstraint(to: appName, from: self, on: .height, and: .height, mult: 0.8, constant: 0)
-        setConstraint(to: appName, from: self, on: .width, and: .width, mult: 1, constant: -132)
-        setConstraint(to: appName, from: self, on: .centerX, and: .centerX, mult: 1, constant: 0)
-        setConstraint(to: appName, from: self, on: .centerY, and: .centerY, mult: 1, constant: 0)
+        setConstraint(to: cellLabel, from: self, on: .height, and: .height, mult: 0.8, constant: 0)
+        setConstraint(to: cellLabel, from: self, on: .width, and: .width, mult: 1, constant: -132)
+        setConstraint(to: cellLabel, from: self, on: .centerX, and: .centerX, mult: 1, constant: 0)
+        setConstraint(to: cellLabel, from: self, on: .centerY, and: .centerY, mult: 1, constant: 0)
         
     }
     
