@@ -11,9 +11,10 @@ import UIKit
 class ContactsView: UIView, UITableViewDelegate, UITableViewDataSource {
     
     var table = UITableView()
-    var screen = ScreenDimensions()
+    var screen: ScreenDimensions!
 
-    init() {
+    init(dimensions: ScreenDimensions) {
+        screen = dimensions
         let viewOrigin = CGPoint(x: 0, y: screen.statusBarHeight + screen.headerHeight)
         let viewSize = CGSize(width: screen.width, height: screen.tableViewHeight)
         super.init(frame: CGRect(origin: viewOrigin, size: viewSize))
@@ -41,27 +42,33 @@ class ContactsView: UIView, UITableViewDelegate, UITableViewDataSource {
     ]
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        let label = UILabel()
-        label.text = headers[section]
-        label.textColor = .white
-        label.backgroundColor = .darkGray
-        return label
+        let sectionHeader = ContactsSection()
+        sectionHeader.buildView(dimensions: screen)
+        sectionHeader.label.text = headers[section]
+        return sectionHeader
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
         return wallets.count
     }
     
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return wallets[section].count
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return screen.headerHeight*(2/3)
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell:ContactsCell = tableView.dequeueReusableCell(withIdentifier: "ContactsCell") as! ContactsCell
-        
+        cell.buildView(dimensions: screen)
         cell.cellLabel.text = wallets[indexPath.section][indexPath.row]
-        
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return wallets[section].count
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return screen.headerHeight*(3/4)
     }
     
     @objc func setConstraint(to: AnyObject, from: AnyObject, on: NSLayoutConstraint.Attribute, and: NSLayoutConstraint.Attribute, mult: CGFloat, constant: CGFloat) {

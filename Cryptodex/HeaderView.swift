@@ -15,9 +15,10 @@ class HeaderView: UIView {
 
     let appName = UILabel()
 
-    let screen = ScreenDimensions()
+    var screen: ScreenDimensions!
 
-    init() {
+    init(dimensions: ScreenDimensions) {
+        screen = dimensions
         let viewOrigin = CGPoint(x: 0, y: screen.statusBarHeight)
         let viewSize = CGSize(width: screen.width, height: screen.headerHeight)
         super.init(frame: CGRect(origin: viewOrigin, size: viewSize))
@@ -34,10 +35,10 @@ class HeaderView: UIView {
             btn.backgroundColor = .lightGray
             setConstraint(to: btn, from: self, on: .height, and: .height, mult: 0.8, constant: 0)
             setConstraint(to: btn, from: self, on: .width, and: .height, mult: 0.8, constant: 0)
-            setConstraint(to: btn, from: self, on: .top, and: .top, mult: 1, constant: CGFloat(screen.headerHeight*0.1))
+            setConstraint(to: btn, from: self, on: .top, and: .top, mult: 1, constant: screen.headerHeight*0.1)
         }
-        setConstraint(to: removeContact, from: self, on: .leading, and: .leading, mult: 1, constant: CGFloat(screen.statusBarHeight/2))
-        setConstraint(to: addContact, from: self, on: .trailing, and: .trailing, mult: 1, constant: -CGFloat(screen.statusBarHeight/2))
+        setConstraint(to: removeContact, from: self, on: .leading, and: .leading, mult: 1, constant: screen.statusBarHeight/2)
+        setConstraint(to: addContact, from: self, on: .trailing, and: .trailing, mult: 1, constant: -screen.statusBarHeight/2)
         
         addSubview(appName)
         appName.translatesAutoresizingMaskIntoConstraints = false
@@ -49,7 +50,7 @@ class HeaderView: UIView {
         setConstraint(to: appName, from: self, on: .height, and: .height, mult: 0.8, constant: 0)
         setConstraint(to: appName, from: self, on: .width, and: .width, mult: 1, constant: -132)
         setConstraint(to: appName, from: self, on: .centerX, and: .centerX, mult: 1, constant: 0)
-        setConstraint(to: appName, from: self, on: .top, and: .top, mult: 1, constant: CGFloat(screen.headerHeight*0.1))
+        setConstraint(to: appName, from: self, on: .top, and: .top, mult: 1, constant: screen.headerHeight*0.1)
 
     }
     

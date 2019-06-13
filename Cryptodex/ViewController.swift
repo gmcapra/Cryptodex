@@ -12,7 +12,9 @@ class ViewController: UIViewController {
 
     var header: HeaderView!
     var contacts: ContactsView!
-      
+    
+    let screen = ScreenDimensions()
+    
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return .lightContent
     }
@@ -20,8 +22,8 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        header = HeaderView()
-        contacts = ContactsView()
+        header = HeaderView(dimensions: screen)
+        contacts = ContactsView(dimensions: screen)
         view.addSubview(header)
         view.addSubview(contacts)
     }

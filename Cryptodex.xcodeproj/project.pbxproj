@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		66C481DA22B07D9900B7E5FF /* ContactsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66C481D922B07D9900B7E5FF /* ContactsView.swift */; };
 		66C481DC22B07E3600B7E5FF /* ContactsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66C481DB22B07E3600B7E5FF /* ContactsCell.swift */; };
+		66C481DE22B30C5100B7E5FF /* ContactsSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66C481DD22B30C5100B7E5FF /* ContactsSection.swift */; };
 		66EBDCAD22AEEB3F00BE1225 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66EBDCAC22AEEB3F00BE1225 /* AppDelegate.swift */; };
 		66EBDCAF22AEEB3F00BE1225 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66EBDCAE22AEEB3F00BE1225 /* ViewController.swift */; };
 		66EBDCB522AEEB3F00BE1225 /* Cryptodex.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 66EBDCB322AEEB3F00BE1225 /* Cryptodex.xcdatamodeld */; };
@@ -32,6 +33,7 @@
 /* Begin PBXFileReference section */
 		66C481D922B07D9900B7E5FF /* ContactsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsView.swift; sourceTree = "<group>"; };
 		66C481DB22B07E3600B7E5FF /* ContactsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsCell.swift; sourceTree = "<group>"; };
+		66C481DD22B30C5100B7E5FF /* ContactsSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsSection.swift; sourceTree = "<group>"; };
 		66EBDCA922AEEB3F00BE1225 /* Cryptodex.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Cryptodex.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		66EBDCAC22AEEB3F00BE1225 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		66EBDCAE22AEEB3F00BE1225 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -91,6 +93,7 @@
 				66EBDCD122AF170100BE1225 /* HeaderView.swift */,
 				66C481D922B07D9900B7E5FF /* ContactsView.swift */,
 				66C481DB22B07E3600B7E5FF /* ContactsCell.swift */,
+				66C481DD22B30C5100B7E5FF /* ContactsSection.swift */,
 				66EBDCB622AEEB4300BE1225 /* Assets.xcassets */,
 				66EBDCB822AEEB4300BE1225 /* LaunchScreen.storyboard */,
 				66EBDCBB22AEEB4300BE1225 /* Info.plist */,
@@ -215,6 +218,7 @@
 				66EBDCD422B0587C00BE1225 /* ScreenDimensions.swift in Sources */,
 				66EBDCAD22AEEB3F00BE1225 /* AppDelegate.swift in Sources */,
 				66C481DC22B07E3600B7E5FF /* ContactsCell.swift in Sources */,
+				66C481DE22B30C5100B7E5FF /* ContactsSection.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

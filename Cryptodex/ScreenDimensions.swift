@@ -11,27 +11,27 @@ import UIKit
 struct ScreenDimensions {
     
     let bounds: CGRect
-    let height: Double
-    let width: Double
+    let height: CGFloat
+    let width: CGFloat
     
     let statusBar: CGSize
-    let statusBarHeight: Double
+    let statusBarHeight: CGFloat
     
-    let headerHeight: Double
-    let tableViewHeight: Double
-    let adBannerHeight: Double
+    let headerHeight: CGFloat
+    let tableViewHeight: CGFloat
+    let adBannerHeight: CGFloat
     
-    let headerRatio: Double = 0.07
-    let tableViewRatio: Double = 0.84
-    let adBannerRatio: Double = 0.09
+    let headerRatio: CGFloat = 0.07
+    let tableViewRatio: CGFloat = 0.84
+    let adBannerRatio: CGFloat = 0.09
     
     init() {
         self.statusBar = UIApplication.shared.statusBarFrame.size
-        self.statusBarHeight = Double(statusBar.height)
+        self.statusBarHeight = statusBar.height
         
         self.bounds = UIScreen.main.bounds
-        self.height = Double(bounds.height) - statusBarHeight
-        self.width = Double(bounds.width)
+        self.height = bounds.height - statusBarHeight
+        self.width = bounds.width
         
         self.headerHeight = headerRatio * height
         self.tableViewHeight = tableViewRatio * height
