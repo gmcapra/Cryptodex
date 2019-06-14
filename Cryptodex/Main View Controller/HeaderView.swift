@@ -51,7 +51,46 @@ class HeaderView: UIView {
         setConstraint(to: appName, from: self, on: .width, and: .width, mult: 1, constant: -132)
         setConstraint(to: appName, from: self, on: .centerX, and: .centerX, mult: 1, constant: 0)
         setConstraint(to: appName, from: self, on: .top, and: .top, mult: 1, constant: screen.headerHeight*0.1)
+        
+        //////////////////////////////////////////////////////////////////////
+        //GIANLUCA EDITS HERE:
+        //Customizing right header button to access qr scanner.
+        addContact.backgroundColor = .clear
+        addContact.setBackgroundImage(UIImage(named: "addContact"), for: .normal)
+        addContact.addTarget(self, action: #selector(showQRScanner), for: .touchUpInside)
+        
 
+    }
+    
+    ////////////////////////////////////////////////
+    //GIANLUCA ADD FUNCTION:
+    //Adding function for action to take when add contact button is pressed.
+    //for testing this is currently to access the qr scanner.
+    @objc func showQRScanner() {
+        
+        let qrVC = QRViewController()
+        let topVC = getTopViewController()
+        
+        //NEED BETTER ANIMATION, CANT GET THE PRESENTATION STYLES TO WORK
+        topVC?.modalTransitionStyle = UIModalTransitionStyle.coverVertical
+        topVC?.modalPresentationStyle = UIModalPresentationStyle.overFullScreen
+        topVC!.present(qrVC, animated: true, completion: nil)
+
+        
+    }
+    
+    ///////////////////////////////////////////////
+    //GIANLUCA ADD FUNCTION:
+    //This function returns the top view controller so that navigation can
+    //occur between vcs.
+    func getTopViewController() -> UIViewController? {
+        var topViewController = UIApplication.shared.keyWindow?.rootViewController
+        
+        while let presentedViewController = topViewController?.presentedViewController {
+            topViewController = presentedViewController
+        }
+        
+        return topViewController
     }
     
     @objc func setConstraint(to: AnyObject, from: AnyObject, on: NSLayoutConstraint.Attribute, and: NSLayoutConstraint.Attribute, mult: CGFloat, constant: CGFloat) {
