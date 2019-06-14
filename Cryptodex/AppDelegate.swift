@@ -23,6 +23,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         self.window!.backgroundColor = UIColor(red: 22.0/255.0, green: 29.0/255.0, blue: 51.0/255.0, alpha: 1)
         window!.makeKeyAndVisible()
         
+        
         return true
     }
 
