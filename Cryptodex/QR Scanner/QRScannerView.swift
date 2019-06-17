@@ -18,7 +18,6 @@ class QRScannerView: UIView, AVCaptureMetadataOutputObjectsDelegate {
     let scanText = UILabel()
     var scanFrame: UIImageView!
     
-    let scanSuccessLabel = UILabel()
     let verificationLabel = UILabel()
     let addressTypeLabel = UILabel()
     let addressIdentifierLabel = UILabel()
@@ -27,16 +26,20 @@ class QRScannerView: UIView, AVCaptureMetadataOutputObjectsDelegate {
     let cancelButton = UIButton()
     let scanAnotherButton = UIButton()
     
-    //keep track of flash
+    //keep track of flash for image updates
     var flashOn: Bool!
     
     
     init() {
         
+        //get headerview for reference
+        let headerview = HeaderView(dimensions: screen)
+        let heightDisplacement = headerview.frame.height/2
+        
         let viewHeight = screen.height
         let viewWidth = screen.width
         let originX = screen.width/2 - viewWidth/2
-        let originY = screen.height/2 - 2*viewHeight/5
+        let originY = screen.height/2 - 2*viewHeight/5 + heightDisplacement
         
         let viewOrigin = CGPoint(x: originX, y: originY)
         let viewSize = CGSize(width: viewWidth, height: viewHeight)
@@ -112,22 +115,6 @@ class QRScannerView: UIView, AVCaptureMetadataOutputObjectsDelegate {
         
         //Create placeholders for the summary information
         
-        scanSuccessLabel.backgroundColor = .clear
-        scanSuccessLabel.text = ""
-        scanSuccessLabel.textColor = .green
-        scanSuccessLabel.textAlignment = NSTextAlignment.center
-        scanSuccessLabel.font = UIFont(name: "Helvetica", size: 15)
-        scanSuccessLabel.contentMode = ContentMode.scaleAspectFit
-        
-        addSubview(scanSuccessLabel)
-        self.bringSubviewToFront(scanSuccessLabel)
-        
-        //add constraints
-        scanSuccessLabel.translatesAutoresizingMaskIntoConstraints = false
-        scanSuccessLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 20).isActive = true
-        scanSuccessLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -20).isActive = true
-        scanSuccessLabel.heightAnchor.constraint(equalToConstant: 500).isActive = true
-        scanSuccessLabel.centerYAnchor.constraint(equalTo: self.topAnchor, constant: 10).isActive = true
         
         //Shows the type of cryptocurrency wallet that was scanned
         addressTypeLabel.backgroundColor = .clear
@@ -145,7 +132,7 @@ class QRScannerView: UIView, AVCaptureMetadataOutputObjectsDelegate {
         addressTypeLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 20).isActive = true
         addressTypeLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -20).isActive = true
         addressTypeLabel.heightAnchor.constraint(equalToConstant: 500).isActive = true
-        addressTypeLabel.centerYAnchor.constraint(equalTo: scanSuccessLabel.centerYAnchor, constant: 100).isActive = true
+        addressTypeLabel.centerYAnchor.constraint(equalTo: self.topAnchor, constant: 100).isActive = true
         
         //Show the verification label
         verificationLabel.backgroundColor = .clear
@@ -191,35 +178,42 @@ class QRScannerView: UIView, AVCaptureMetadataOutputObjectsDelegate {
     @objc func flashTapped() {
         
         if flashOn == false {
-            toggleFlash(on: true)
+            toggleFlash()
             flashButton.setBackgroundImage(UIImage(named: "flashON"), for: .normal)
-            flashOn = true
             
         } else {
-            toggleFlash(on: false)
+            toggleFlash()
             flashButton.setBackgroundImage(UIImage(named: "flashOFF"), for: .normal)
-            flashOn = false
         }
         
     }
     
-    func toggleFlash(on: Bool) {
-        guard let device = AVCaptureDevice.default(for: .video) else { return }
+    func toggleFlash() {
+        
+        let deviceDiscoverySession = AVCaptureDevice.DiscoverySession(deviceTypes: [.builtInDualCamera], mediaType: AVMediaType.video, position: .back)
+        
+        guard let device = deviceDiscoverySession.devices.first
+            else {return}
+        
         if device.hasTorch {
             do {
                 try device.lockForConfiguration()
-                if on == true {
-                    device.torchMode = .on
-                } else {
+                let on = device.isTorchActive
+                if on != true && device.isTorchModeSupported(.on) {
+                    try device.setTorchModeOn(level: 1.0)
+                    flashOn = true
+                } else if device.isTorchModeSupported(.off){
                     device.torchMode = .off
+                    flashOn = false
+                } else {
+                    print("Flash mode is not supported")
                 }
                 device.unlockForConfiguration()
-                
             } catch {
                 print("Flash could not be used")
             }
         } else {
-            print("Flash unavailable")
+            print("Flash is not available")
         }
     }
     

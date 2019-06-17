@@ -21,7 +21,9 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        self.view.backgroundColor = .black
+        
         header = HeaderView(dimensions: screen)
         contacts = ContactsView(dimensions: screen)
         view.addSubview(header)

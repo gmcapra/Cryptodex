@@ -10,7 +10,7 @@ import UIKit
 
 class HeaderView: UIView {
     
-    var removeContact = UIButton()
+    var scanButton = UIButton()
     var addContact = UIButton()
 
     let appName = UILabel()
@@ -25,11 +25,12 @@ class HeaderView: UIView {
 
         backgroundColor = .black
         buildView()
+        
     }
     
     func buildView() {
         
-        for btn in [removeContact, addContact] {
+        for btn in [scanButton, addContact] {
             addSubview(btn)
             btn.translatesAutoresizingMaskIntoConstraints = false
             btn.backgroundColor = .lightGray
@@ -37,15 +38,16 @@ class HeaderView: UIView {
             setConstraint(to: btn, from: self, on: .width, and: .height, mult: 0.8, constant: 0)
             setConstraint(to: btn, from: self, on: .top, and: .top, mult: 1, constant: screen.headerHeight*0.1)
         }
-        setConstraint(to: removeContact, from: self, on: .leading, and: .leading, mult: 1, constant: screen.statusBarHeight/2)
+        
+        setConstraint(to: scanButton, from: self, on: .leading, and: .leading, mult: 1, constant: screen.statusBarHeight/2)
         setConstraint(to: addContact, from: self, on: .trailing, and: .trailing, mult: 1, constant: -screen.statusBarHeight/2)
         
         addSubview(appName)
         appName.translatesAutoresizingMaskIntoConstraints = false
         appName.text = "Cryptodex"
-        appName.textColor = .lightGray
+        appName.textColor = UIColor(displayP3Red: 205/255, green: 196/255, blue: 115/255, alpha: 1.0)
         appName.textAlignment = .center
-        appName.font = UIFont.systemFont(ofSize: 30.0)
+        appName.font = UIFont.systemFont(ofSize: 25.0)
         //label.font = UIFont(name:"fontname", size: 20.0)
         setConstraint(to: appName, from: self, on: .height, and: .height, mult: 0.8, constant: 0)
         setConstraint(to: appName, from: self, on: .width, and: .width, mult: 1, constant: -132)
@@ -54,28 +56,42 @@ class HeaderView: UIView {
         
         //////////////////////////////////////////////////////////////////////
         //GIANLUCA EDITS HERE:
-        //Customizing right header button to access qr scanner.
+        //Customizing right header button to access manual contact entry.
         addContact.backgroundColor = .clear
         addContact.setBackgroundImage(UIImage(named: "addContact"), for: .normal)
-        addContact.addTarget(self, action: #selector(showQRScanner), for: .touchUpInside)
+        addContact.addTarget(self, action: #selector(showContactEntry), for: .touchUpInside)
         
+        //Customizing left header button to access qr scanner immediately
+        scanButton.backgroundColor = .clear
+        scanButton.setBackgroundImage(UIImage(named: "scanButton"), for: .normal)
+        scanButton.addTarget(self, action: #selector(showQRScanner), for: .touchUpInside)
 
     }
     
     ////////////////////////////////////////////////
     //GIANLUCA ADD FUNCTION:
-    //Adding function for action to take when add contact button is pressed.
-    //for testing this is currently to access the qr scanner.
+    //Adding function for action to take when scan button is pressed.
     @objc func showQRScanner() {
         
         let qrVC = QRViewController()
         let topVC = getTopViewController()
         
-        //NEED BETTER ANIMATION, CANT GET THE PRESENTATION STYLES TO WORK
-        topVC?.modalTransitionStyle = UIModalTransitionStyle.coverVertical
-        topVC?.modalPresentationStyle = UIModalPresentationStyle.overFullScreen
         topVC!.present(qrVC, animated: true, completion: nil)
 
+        
+    }
+    
+    ////////////////////////////////////////////////
+    //GIANLUCA ADD FUNCTION:
+    //Adding function for action to take when add contact button is pressed.
+    @objc func showContactEntry() {
+        
+        /*
+            Code that presents the views in the manual contact entry flow.
+            Since you will likely want to remain with the main VC for this,
+            I will defer to you on the architecture you want to use.
+        */
+        
         
     }
     
@@ -90,8 +106,16 @@ class HeaderView: UIView {
             topViewController = presentedViewController
         }
         
+        //Add custom animation
+        let transition = CATransition()
+        transition.duration = 0.5
+        transition.type = CATransitionType.push
+        transition.subtype = CATransitionSubtype.fromLeft
+        self.window!.layer.add(transition, forKey: kCATransition)
+        
         return topViewController
     }
+    
     
     @objc func setConstraint(to: AnyObject, from: AnyObject, on: NSLayoutConstraint.Attribute, and: NSLayoutConstraint.Attribute, mult: CGFloat, constant: CGFloat) {
         let constraint = NSLayoutConstraint(item: to, attribute: on, relatedBy: .equal, toItem: from, attribute: and, multiplier: mult, constant: constant)

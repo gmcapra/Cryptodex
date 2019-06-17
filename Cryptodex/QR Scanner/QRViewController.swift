@@ -15,6 +15,7 @@ import UIKit
 import Foundation
 import AVFoundation
 
+
 class QRViewController: UIViewController, AVCaptureMetadataOutputObjectsDelegate {
 
     //define qr capture session variables
@@ -23,6 +24,8 @@ class QRViewController: UIViewController, AVCaptureMetadataOutputObjectsDelegate
     
     //define main UI views
     var qrscannerview: QRScannerView!
+    var headerview: HeaderView!
+    
     var qrCodeFrameView: UIView?
     
     //add rescan and exit buttons
@@ -37,10 +40,18 @@ class QRViewController: UIViewController, AVCaptureMetadataOutputObjectsDelegate
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        self.view.backgroundColor = .black
+        
+        readTop100Coins()
+
         
         // add the scanner app header and the scanner view
         qrscannerview = QRScannerView()
+        headerview = HeaderView(dimensions: screen)
+        setupHeader()
+        
         view.addSubview(qrscannerview)
+        view.addSubview(headerview)
     
         //start looking for qr codes immediately
         startQRScan()
@@ -51,6 +62,20 @@ class QRViewController: UIViewController, AVCaptureMetadataOutputObjectsDelegate
         //setup rescan button
         setupButtons()
         
+        
+    }
+    
+    func setupHeader() {
+        
+        //CUSTOMIZE HEADERVIEW FOR SCANNER
+        
+        headerview.addContact.isEnabled = false
+        headerview.addContact.removeFromSuperview()
+        headerview.scanButton.isEnabled = false
+        headerview.scanButton.removeFromSuperview()
+        
+        headerview.appName.text = "Wallet QR Scanner"
+        headerview.appName.font = UIFont(name: "Helvetica", size: 20)
         
     }
     
@@ -82,7 +107,7 @@ class QRViewController: UIViewController, AVCaptureMetadataOutputObjectsDelegate
         //add constraints
         exitButton.translatesAutoresizingMaskIntoConstraints = false
         exitButton.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 0).isActive = true
-        exitButton.centerYAnchor.constraint(equalTo: self.view.topAnchor, constant: 50).isActive = true
+        exitButton.centerYAnchor.constraint(equalTo: headerview.centerYAnchor, constant: 0).isActive = true
         
         
     }
@@ -97,7 +122,10 @@ class QRViewController: UIViewController, AVCaptureMetadataOutputObjectsDelegate
     }
     
     func initializeCaptureSession() {
-        
+
+        //create instance of capture session
+        captureSession = AVCaptureSession()
+
         // Get the back-facing camera for capturing videos
         let deviceDiscoverySession = AVCaptureDevice.DiscoverySession(deviceTypes: [.builtInDualCamera], mediaType: AVMediaType.video, position: .back)
         
@@ -111,7 +139,6 @@ class QRViewController: UIViewController, AVCaptureMetadataOutputObjectsDelegate
             let input = try AVCaptureDeviceInput(device: captureDevice)
             
             // Set the input device on the capture session.
-            captureSession = AVCaptureSession()
             captureSession!.addInput(input)
             
             // Initialize a AVCaptureMetadataOutput object and set it as the output device to the capture session.
@@ -173,19 +200,35 @@ class QRViewController: UIViewController, AVCaptureMetadataOutputObjectsDelegate
                 let addressIdentifier = qrStringValue?.split(separator: ":")[1]
                 
                 ///////////////
-                //need better way of splitting strings by any non alphanumeric character
+                //loop through the top 100 coins .csv and search for name
                 ///////////////
+                
+        
                 
                 ///////////////
                 // CAN CHECK FOR HTTPS IN STRING OR SIMILAR KEYWORDS
                 ///////////////
                 
-                
+                print("\n")
+                print("\n")
+                print("QR CODE FULL STRING VALUE")
                 print(qrStringValue!)
+                print("\n")
+                print("\n")
+
+                
                 qrCodeFound(walletType: String(addressType!).capitalizingFirstLetter(), walletID: String(addressIdentifier!))
                 
             }
         }
+    }
+    
+    func readTop100Coins() {
+        
+        //READ IN TOP 100 CRYPTO CSV FILE
+        
+       
+        
     }
     
     func qrCodeFound(walletType: String, walletID: String) {
@@ -199,7 +242,6 @@ class QRViewController: UIViewController, AVCaptureMetadataOutputObjectsDelegate
         qrscannerview.scanText.removeFromSuperview()
         
         //show the contents of the scanned qr code for verification
-        qrscannerview.scanSuccessLabel.text = "Wallet Scanned Successfully"
         qrscannerview.addressTypeLabel.text = walletType
         qrscannerview.verificationLabel.text = "Please verify the address below before continuing:"
         qrscannerview.addressIdentifierLabel.text = walletID
@@ -236,6 +278,13 @@ class QRViewController: UIViewController, AVCaptureMetadataOutputObjectsDelegate
         while let presentedViewController = topViewController?.presentedViewController {
             topViewController = presentedViewController
         }
+        
+        //Add custom animation
+        let transition = CATransition()
+        transition.duration = 0.5
+        transition.type = CATransitionType.push
+        transition.subtype = CATransitionSubtype.fromRight
+        view.window!.layer.add(transition, forKey: kCATransition)
         
         return topViewController
     }
