@@ -84,7 +84,7 @@ class QRScannerView: UIView, AVCaptureMetadataOutputObjectsDelegate {
         scanText.text = "Scanning for QR Code"
         scanText.textColor = .white
         scanText.textAlignment = NSTextAlignment.center
-        scanText.font = UIFont(name: "Helvetica", size: 20)
+        scanText.font = UIFont(name: "Avenir-Light", size: 20)
         scanText.contentMode = ContentMode.scaleAspectFit
         
         // add button to view
@@ -121,7 +121,7 @@ class QRScannerView: UIView, AVCaptureMetadataOutputObjectsDelegate {
         addressTypeLabel.text = ""
         addressTypeLabel.textColor = .lightGray
         addressTypeLabel.textAlignment = NSTextAlignment.center
-        addressTypeLabel.font = UIFont(name: "Helvetica", size: 45)
+        addressTypeLabel.font = UIFont(name: "Avenir-Light", size: 30)
         addressTypeLabel.contentMode = ContentMode.scaleAspectFit
         
         addSubview(addressTypeLabel)
@@ -139,7 +139,7 @@ class QRScannerView: UIView, AVCaptureMetadataOutputObjectsDelegate {
         verificationLabel.text = ""
         verificationLabel.textColor = .white
         verificationLabel.textAlignment = NSTextAlignment.center
-        verificationLabel.font = UIFont(name: "Helvetica", size: 20)
+        verificationLabel.font = UIFont(name: "Avenir-Light", size: 20)
         verificationLabel.contentMode = ContentMode.scaleAspectFit
         verificationLabel.numberOfLines = 0
         
@@ -158,7 +158,7 @@ class QRScannerView: UIView, AVCaptureMetadataOutputObjectsDelegate {
         addressIdentifierLabel.text = ""
         addressIdentifierLabel.textColor = .lightGray
         addressIdentifierLabel.textAlignment = NSTextAlignment.center
-        addressIdentifierLabel.font = UIFont(name: "Helvetica", size: 40)
+        addressIdentifierLabel.font = UIFont(name: "Avenir-Light", size: 40)
         addressIdentifierLabel.numberOfLines = 0
         addressIdentifierLabel.contentMode = ContentMode.scaleAspectFit
         
@@ -170,7 +170,7 @@ class QRScannerView: UIView, AVCaptureMetadataOutputObjectsDelegate {
         addressIdentifierLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 10).isActive = true
         addressIdentifierLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -10).isActive = true
         addressIdentifierLabel.heightAnchor.constraint(equalToConstant: 500).isActive = true
-        addressIdentifierLabel.centerYAnchor.constraint(equalTo: verificationLabel.centerYAnchor, constant: 150).isActive = true
+        addressIdentifierLabel.centerYAnchor.constraint(equalTo: verificationLabel.centerYAnchor, constant: 200).isActive = true
         
     }
     

@@ -47,7 +47,7 @@ class HeaderView: UIView {
         appName.text = "Cryptodex"
         appName.textColor = UIColor(displayP3Red: 205/255, green: 196/255, blue: 115/255, alpha: 1.0)
         appName.textAlignment = .center
-        appName.font = UIFont.systemFont(ofSize: 25.0)
+        appName.font = UIFont(name: "Avenir-Light", size: 25)
         //label.font = UIFont(name:"fontname", size: 20.0)
         setConstraint(to: appName, from: self, on: .height, and: .height, mult: 0.8, constant: 0)
         setConstraint(to: appName, from: self, on: .width, and: .width, mult: 1, constant: -132)

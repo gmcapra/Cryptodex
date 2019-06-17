@@ -20,7 +20,6 @@ class QRViewController: UIViewController, AVCaptureMetadataOutputObjectsDelegate
     //define main UI views
     var qrscannerview: QRScannerView!
     var headerview: HeaderView!
-    
     var qrCodeFrameView: UIView?
     
     //add rescan and exit buttons
@@ -29,6 +28,9 @@ class QRViewController: UIViewController, AVCaptureMetadataOutputObjectsDelegate
 
     //get screen dimensions
     let screen = ScreenDimensions()
+    
+    //define array to store wallet types
+    var walletTypes: Array<String>!
     
     
     //initialize the viewcontroller
@@ -70,7 +72,7 @@ class QRViewController: UIViewController, AVCaptureMetadataOutputObjectsDelegate
         headerview.scanButton.removeFromSuperview()
         
         headerview.appName.text = "Wallet QR Scanner"
-        headerview.appName.font = UIFont(name: "Helvetica", size: 20)
+        headerview.appName.font = UIFont(name: "Avenir-Light", size: 20)
         
     }
     
@@ -88,7 +90,7 @@ class QRViewController: UIViewController, AVCaptureMetadataOutputObjectsDelegate
         //add constraints
         rescanButton.translatesAutoresizingMaskIntoConstraints = false
         rescanButton.centerXAnchor.constraint(equalTo: self.view.centerXAnchor).isActive = true
-        rescanButton.centerYAnchor.constraint(equalTo: self.view.bottomAnchor, constant: -150).isActive = true
+        rescanButton.centerYAnchor.constraint(equalTo: self.view.bottomAnchor, constant: -100).isActive = true
         
         //add the exit button to the view
         exitButton.setBackgroundImage(UIImage(named: "exitButton"), for: .normal)
@@ -191,18 +193,9 @@ class QRViewController: UIViewController, AVCaptureMetadataOutputObjectsDelegate
             if metadataObj.stringValue != nil {
                 
                 let qrStringValue = metadataObj.stringValue
-                let addressType = qrStringValue?.split(separator: ":")[0]
-                let addressIdentifier = qrStringValue?.split(separator: ":")[1]
+                let addressType = (qrStringValue?.split(separator: ":")[0])
+                let addressIdentifier = (qrStringValue?.split(separator: ":")[1])
                 
-                ///////////////
-                //loop through the top 100 coins .csv and search for name
-                ///////////////
-                
-        
-                
-                ///////////////
-                // CAN CHECK FOR HTTPS IN STRING OR SIMILAR KEYWORDS
-                ///////////////
                 
                 print("\n")
                 print("\n")
@@ -210,9 +203,29 @@ class QRViewController: UIViewController, AVCaptureMetadataOutputObjectsDelegate
                 print(qrStringValue!)
                 print("\n")
                 print("\n")
-
                 
-                qrCodeFound(walletType: String(addressType!).capitalizingFirstLetter(), walletID: String(addressIdentifier!))
+                ///////////////
+                //loop through the top 100 coins .csv and search for name
+                ///////////////
+                //DEFINE COINBASE WALLET TYPES
+                walletTypes = ["bitcoincash","ripple","stellar","ethereum_classic","zcash","bitcoin","litecoin","eos","ethereum"]
+                
+                
+               //define final address identifier string
+                let addressString = String(addressIdentifier!)
+                var typeString = String(addressType!)
+                
+                //Search for match in known wallet types
+                for index in walletTypes {
+                    if typeString.contains(index) {
+                        typeString = index.capitalizingFirstLetter()
+                    }
+                }
+                
+                //NEED identification of subtypes (i.e. what kind of ethereum token??)
+                
+                
+                qrCodeFound(walletType: typeString, walletID: addressString)
                 
             }
         }
@@ -221,6 +234,12 @@ class QRViewController: UIViewController, AVCaptureMetadataOutputObjectsDelegate
     func readTop100Coins() {
         
         //READ IN TOP 100 CRYPTO CSV FILE
+        
+        //define the coinbase wallet types for testing
+        //later replace this with csv file contents
+        
+        
+        
         
         
     }
