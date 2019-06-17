@@ -1,15 +1,10 @@
 //
-//  ViewController.swift
+//  QRViewController.swift
 //  CryptodexQRScanner
 //
 //  Created by Gianluca Capraro on 6/13/19.
 //  Copyright © 2019 gmc. All rights reserved.
 //
-
-
-/*
-    This View controller is a building block for the scanning functionality used in the cryptodex app. This standalone app is capable of scanning and recognizing most cryptocurrency wallet addresses in their qr code form.
-*/
 
 import UIKit
 import Foundation
@@ -227,7 +222,6 @@ class QRViewController: UIViewController, AVCaptureMetadataOutputObjectsDelegate
         
         //READ IN TOP 100 CRYPTO CSV FILE
         
-       
         
     }
     
