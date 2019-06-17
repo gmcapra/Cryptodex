@@ -25,7 +25,10 @@ class ViewController: UIViewController {
         self.view.backgroundColor = .black
         
         header = HeaderView(dimensions: screen)
-        contacts = ContactsView(dimensions: screen)
+        let contactsOrigin = CGPoint(x: 0, y: screen.statusBarHeight + screen.headerHeight)
+        let contactsSize = CGSize(width: screen.width, height: screen.tableViewHeight)
+        contacts = ContactsView(frame: CGRect(origin: contactsOrigin, size: contactsSize), style: .plain)
+        contacts.buildTable(dimensions: screen)
         view.addSubview(header)
         view.addSubview(contacts)
     }
