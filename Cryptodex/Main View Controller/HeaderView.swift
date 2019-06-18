@@ -76,7 +76,7 @@ class HeaderView: UIView {
         let qrVC = QRViewController()
         let topVC = getTopViewController()
         
-        topVC!.present(qrVC, animated: true, completion: nil)
+        topVC!.present(qrVC, animated: false, completion: nil)
 
         
     }

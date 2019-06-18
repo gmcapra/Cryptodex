@@ -280,7 +280,7 @@ class QRViewController: UIViewController, AVCaptureMetadataOutputObjectsDelegate
         //PUSH TO MAIN VIEW CONTROLLER 
         print("Exit Button Registered Touch")
         let mainVC = ViewController()
-        getTopViewController()?.present(mainVC, animated: true, completion: nil)
+        getTopViewController()?.present(mainVC, animated: false, completion: nil)
         
         return
     }
