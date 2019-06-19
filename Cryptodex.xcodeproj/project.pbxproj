@@ -18,6 +18,7 @@
 		66EBDCC522AEEB4400BE1225 /* CryptodexTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66EBDCC422AEEB4400BE1225 /* CryptodexTests.swift */; };
 		66EBDCD222AF170100BE1225 /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66EBDCD122AF170100BE1225 /* HeaderView.swift */; };
 		66EBDCD422B0587C00BE1225 /* ScreenDimensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66EBDCD322B0587C00BE1225 /* ScreenDimensions.swift */; };
+		8E9C0B1522BA9F7D00B6CB47 /* ContactQRView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E9C0B1422BA9F7D00B6CB47 /* ContactQRView.swift */; };
 		8EFDE6D922B31AD8000F2CC5 /* QRScannerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EFDE6D722B31AD8000F2CC5 /* QRScannerView.swift */; };
 		8EFDE6DA22B31AD8000F2CC5 /* QRViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EFDE6D822B31AD8000F2CC5 /* QRViewController.swift */; };
 /* End PBXBuildFile section */
@@ -48,6 +49,7 @@
 		66EBDCC622AEEB4400BE1225 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		66EBDCD122AF170100BE1225 /* HeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
 		66EBDCD322B0587C00BE1225 /* ScreenDimensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenDimensions.swift; sourceTree = "<group>"; };
+		8E9C0B1422BA9F7D00B6CB47 /* ContactQRView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ContactQRView.swift; path = "Cryptodex/Main View Controller/ContactQRView.swift"; sourceTree = SOURCE_ROOT; };
 		8EFDE6D722B31AD8000F2CC5 /* QRScannerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QRScannerView.swift; sourceTree = "<group>"; };
 		8EFDE6D822B31AD8000F2CC5 /* QRViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QRViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -125,6 +127,7 @@
 			isa = PBXGroup;
 			children = (
 				66EBDCAE22AEEB3F00BE1225 /* ViewController.swift */,
+				8E9C0B1422BA9F7D00B6CB47 /* ContactQRView.swift */,
 				66EBDCD122AF170100BE1225 /* HeaderView.swift */,
 				66C481D922B07D9900B7E5FF /* ContactsView.swift */,
 				66C481DB22B07E3600B7E5FF /* ContactsCell.swift */,
@@ -241,6 +244,7 @@
 				8EFDE6D922B31AD8000F2CC5 /* QRScannerView.swift in Sources */,
 				66EBDCD422B0587C00BE1225 /* ScreenDimensions.swift in Sources */,
 				66EBDCAD22AEEB3F00BE1225 /* AppDelegate.swift in Sources */,
+				8E9C0B1522BA9F7D00B6CB47 /* ContactQRView.swift in Sources */,
 				66C481DC22B07E3600B7E5FF /* ContactsCell.swift in Sources */,
 				66C481DE22B30C5100B7E5FF /* ContactsSection.swift in Sources */,
 			);

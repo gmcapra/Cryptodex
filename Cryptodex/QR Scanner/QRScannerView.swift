@@ -26,6 +26,8 @@ class QRScannerView: UIView, AVCaptureMetadataOutputObjectsDelegate {
     let cancelButton = UIButton()
     let scanAnotherButton = UIButton()
     
+    let testContactQR = ContactQRView(contactString: "COINDEXUNIQUE_CONTACT:gianluca:capraro:wallet1:fndfirunueriner232:wallet2:fndskjfsdf3223n5kj")
+    
     //keep track of flash for image updates
     var flashOn: Bool!
     
@@ -49,6 +51,23 @@ class QRScannerView: UIView, AVCaptureMetadataOutputObjectsDelegate {
 
         setupLabels()
         setupButtons()
+        
+        
+        /*
+        ////////////CODE FOR TESTING THE CONTACTQRVIEW//////////////
+        //The generated qr code will show up in the qr scanning viewcontroller when this code is run.
+        //add the scanning frame image for reference
+        addSubview(testContactQR)
+        self.bringSubviewToFront(testContactQR)
+        //add constraints
+        testContactQR.contentMode = ContentMode.scaleAspectFit
+        testContactQR.translatesAutoresizingMaskIntoConstraints = false
+        testContactQR.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 20).isActive = true
+        testContactQR.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -20).isActive = true
+        testContactQR.heightAnchor.constraint(equalToConstant: 500).isActive = true
+        testContactQR.centerYAnchor.constraint(equalTo: self.centerYAnchor, constant: -50).isActive = true
+        ///////////////////////////////////////////////////////////////
+        */
         
     }
     
