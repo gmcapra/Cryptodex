@@ -7,6 +7,26 @@
 //
 
 // This is a custom UIImage view that generates and displays a QR Code from a given string.
+// READ BELOW FOR PROPER FORMATTING:
+/*
+ 
+ The QR Code Generated must be properly formatted for sharing between users.
+ 
+Formatting guidelines are as follows:
+    - contacts must be uniquely identified with "COINDEXUNIQUE_CONTACT" as the beginning of the string
+    - all fields are separated by the ":" character
+    - follows convention (contactidentifier:firstname:lastname:wallet1Type:wallet1Address:wallet2Type:wallet2Address:...)
+
+ - Example contact we want to share
+        - Name is Tony Stark,
+          Bitcoin Wallet with address 1dC45dsfi3010EEgnffX
+          Ethereum Wallet with address 0cxfRE5434FDJk
+ 
+ - Example string to pass would be:
+    "COINDEXUNIQUE_CONTACT:Tony:Stark:Bitcoin:1dC45dsfi3010EEgnffX:Ethereum:0cxfRE5434FDJk"
+
+ */
+
 
 import Foundation
 import UIKit

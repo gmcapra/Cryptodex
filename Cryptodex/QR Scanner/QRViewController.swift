@@ -25,6 +25,7 @@ class QRViewController: UIViewController, AVCaptureMetadataOutputObjectsDelegate
     //add rescan and exit buttons
     let rescanButton = UIButton()
     let exitButton = UIButton()
+    
 
     //get screen dimensions
     let screen = ScreenDimensions()
@@ -71,7 +72,7 @@ class QRViewController: UIViewController, AVCaptureMetadataOutputObjectsDelegate
         headerview.scanButton.isEnabled = false
         headerview.scanButton.removeFromSuperview()
         
-        headerview.appName.text = "Wallet QR Scanner"
+        headerview.appName.text = ""
         headerview.appName.font = UIFont(name: "Avenir-Light", size: 20)
         
     }
