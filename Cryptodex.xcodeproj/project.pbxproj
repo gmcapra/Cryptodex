@@ -20,6 +20,7 @@
 		66EBDCD422B0587C00BE1225 /* ScreenDimensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66EBDCD322B0587C00BE1225 /* ScreenDimensions.swift */; };
 		8E9C0B1522BA9F7D00B6CB47 /* ContactQRView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E9C0B1422BA9F7D00B6CB47 /* ContactQRView.swift */; };
 		8E9C0B1722BAAA3000B6CB47 /* QRViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E9C0B1622BAAA3000B6CB47 /* QRViewController.swift */; };
+		8E9C0B1922BAAC7A00B6CB47 /* QRScannedSummary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E9C0B1822BAAC7A00B6CB47 /* QRScannedSummary.swift */; };
 		8EFDE6D922B31AD8000F2CC5 /* QRScannerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EFDE6D722B31AD8000F2CC5 /* QRScannerView.swift */; };
 /* End PBXBuildFile section */
 
@@ -51,6 +52,7 @@
 		66EBDCD322B0587C00BE1225 /* ScreenDimensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenDimensions.swift; sourceTree = "<group>"; };
 		8E9C0B1422BA9F7D00B6CB47 /* ContactQRView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ContactQRView.swift; path = "Cryptodex/Main View Controller/ContactQRView.swift"; sourceTree = SOURCE_ROOT; };
 		8E9C0B1622BAAA3000B6CB47 /* QRViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QRViewController.swift; sourceTree = "<group>"; };
+		8E9C0B1822BAAC7A00B6CB47 /* QRScannedSummary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRScannedSummary.swift; sourceTree = "<group>"; };
 		8EFDE6D722B31AD8000F2CC5 /* QRScannerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QRScannerView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -119,6 +121,7 @@
 			children = (
 				8E9C0B1622BAAA3000B6CB47 /* QRViewController.swift */,
 				8EFDE6D722B31AD8000F2CC5 /* QRScannerView.swift */,
+				8E9C0B1822BAAC7A00B6CB47 /* QRScannedSummary.swift */,
 			);
 			path = "QR Scanner";
 			sourceTree = "<group>";
@@ -238,6 +241,7 @@
 			files = (
 				66EBDCD222AF170100BE1225 /* HeaderView.swift in Sources */,
 				66EBDCB522AEEB3F00BE1225 /* Cryptodex.xcdatamodeld in Sources */,
+				8E9C0B1922BAAC7A00B6CB47 /* QRScannedSummary.swift in Sources */,
 				66EBDCAF22AEEB3F00BE1225 /* ViewController.swift in Sources */,
 				66C481DA22B07D9900B7E5FF /* ContactsView.swift in Sources */,
 				8EFDE6D922B31AD8000F2CC5 /* QRScannerView.swift in Sources */,

@@ -16,15 +16,21 @@ class QRViewController: UIViewController, AVCaptureMetadataOutputObjectsDelegate
     //define qr capture session variables
     var captureSession: AVCaptureSession?
     var videoPreviewLayer: AVCaptureVideoPreviewLayer?
+    var flashOn: Bool!
     
     //define main UI views
     var qrscannerview: QRScannerView!
     var headerview: HeaderView!
     var qrCodeFrameView: UIView?
+    var qrscannedsummary: QRScannedSummary!
     
     //add rescan and exit buttons
     let rescanButton = UIButton()
     let exitButton = UIButton()
+    
+    let flashButton = UIButton()
+    let cancelButton = UIButton()
+    let scanAnotherButton = UIButton()
     
 
     //get screen dimensions
@@ -40,13 +46,12 @@ class QRViewController: UIViewController, AVCaptureMetadataOutputObjectsDelegate
         // Do any additional setup after loading the view.
         self.view.backgroundColor = .black
         
-        readTop100Coins()
-
         
         // add the scanner app header and the scanner view
         qrscannerview = QRScannerView()
         headerview = HeaderView(dimensions: screen)
         setupHeader()
+        flashOn = false
         
         view.addSubview(qrscannerview)
         view.addSubview(headerview)
@@ -107,7 +112,63 @@ class QRViewController: UIViewController, AVCaptureMetadataOutputObjectsDelegate
         exitButton.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 0).isActive = true
         exitButton.centerYAnchor.constraint(equalTo: headerview.centerYAnchor, constant: 0).isActive = true
         
+        flashButton.setBackgroundImage(UIImage(named: "flashOFF"), for: .normal)
+        flashButton.isEnabled = true
+        flashButton.isHidden = false
+        self.view.addSubview(flashButton)
         
+        //add button action for flash
+        flashButton.addTarget(self, action: #selector(flashTapped), for: .touchUpInside)
+        flashOn = false
+        
+        //add constraints
+        flashButton.translatesAutoresizingMaskIntoConstraints = false
+        flashButton.centerXAnchor.constraint(equalTo: self.view.centerXAnchor).isActive = true
+        flashButton.centerYAnchor.constraint(equalTo: self.view.bottomAnchor, constant: -100).isActive = true
+        
+        
+    }
+    
+    @objc func flashTapped() {
+        
+        if flashOn == false {
+            toggleFlash()
+            flashButton.setBackgroundImage(UIImage(named: "flashON"), for: .normal)
+            
+        } else {
+            toggleFlash()
+            flashButton.setBackgroundImage(UIImage(named: "flashOFF"), for: .normal)
+        }
+        
+    }
+    
+    func toggleFlash() {
+        
+        let deviceDiscoverySession = AVCaptureDevice.DiscoverySession(deviceTypes: [.builtInDualCamera], mediaType: AVMediaType.video, position: .back)
+        
+        guard let device = deviceDiscoverySession.devices.first
+            else {return}
+        
+        if device.hasTorch {
+            do {
+                try device.lockForConfiguration()
+                let on = device.isTorchActive
+                if on != true && device.isTorchModeSupported(.on) {
+                    try device.setTorchModeOn(level: 1.0)
+                    flashOn = true
+                } else if device.isTorchModeSupported(.off){
+                    device.torchMode = .off
+                    flashOn = false
+                } else {
+                    print("Flash mode is not supported")
+                }
+                device.unlockForConfiguration()
+            } catch {
+                print("Flash could not be used")
+            }
+        } else {
+            print("Flash is not available")
+        }
     }
     
     func startQRScan() {
@@ -197,7 +258,6 @@ class QRViewController: UIViewController, AVCaptureMetadataOutputObjectsDelegate
                 let addressType = (qrStringValue?.split(separator: ":")[0])
                 let addressIdentifier = (qrStringValue?.split(separator: ":")[1])
                 
-                
                 print("\n")
                 print("\n")
                 print("QR CODE FULL STRING VALUE")
@@ -232,42 +292,26 @@ class QRViewController: UIViewController, AVCaptureMetadataOutputObjectsDelegate
         }
     }
     
-    func readTop100Coins() {
-        
-        //READ IN TOP 100 CRYPTO CSV FILE
-        
-        //define the coinbase wallet types for testing
-        //later replace this with csv file contents
-        
-        
-        
-        
-        
-    }
-    
     func qrCodeFound(walletType: String, walletID: String) {
         
         //stop the capture session, remove it from view
         captureSession?.stopRunning()
         videoPreviewLayer?.removeFromSuperlayer()
         
-        //remove the scanning label and frame
-        qrscannerview.scanFrame.removeFromSuperview()
-        qrscannerview.scanText.removeFromSuperview()
+        //remove scanner from view
+        qrscannerview.removeFromSuperview()
         
-        //show the contents of the scanned qr code for verification
-        qrscannerview.addressTypeLabel.text = walletType
-        qrscannerview.verificationLabel.text = "Please verify the address below before continuing:"
-        qrscannerview.addressIdentifierLabel.text = walletID
+        //create the summary view
+        qrscannedsummary = QRScannedSummary(walletType: walletType, walletAddress: walletID)
+        view.addSubview(qrscannedsummary)
         
         // remove and add appropriate buttons
-        qrscannerview.flashButton.isEnabled = false
-        qrscannerview.flashButton.isHidden = true
-        qrscannerview.scanAnotherButton.isEnabled = true
-        qrscannerview.scanAnotherButton.isHidden = false
-        
+        flashButton.isEnabled = false
+        flashButton.isHidden = true
         rescanButton.isEnabled = true
         rescanButton.isHidden = false
+        view.bringSubviewToFront(rescanButton)
+        
         
     }
     
@@ -286,6 +330,22 @@ class QRViewController: UIViewController, AVCaptureMetadataOutputObjectsDelegate
         return
     }
     
+    @objc func rescanQRCode() {
+        
+        print("Rescan Button Press Registered")
+        rescanButton.removeFromSuperview()
+        qrscannedsummary.removeFromSuperview()
+        qrscannerview = QRScannerView()
+        self.view.addSubview(qrscannerview)
+        // look for qr codes
+        startQRScan()
+        //configure qr code frame for recognition
+        setupQRCodeFrameView()
+        // add buttons
+        setupButtons()
+        
+    }
+    
     func getTopViewController() -> UIViewController? {
         var topViewController = UIApplication.shared.keyWindow?.rootViewController
         
@@ -302,27 +362,6 @@ class QRViewController: UIViewController, AVCaptureMetadataOutputObjectsDelegate
         
         return topViewController
     }
-    
-    @objc func rescanQRCode() {
-        
-        print("Rescan Button Press Registered")
-        rescanButton.removeFromSuperview()
-        
-        qrscannerview.removeFromSuperview()
-        qrscannerview = QRScannerView()
-        self.view.addSubview(qrscannerview)
-        
-        // look for qr codes
-        startQRScan()
-        
-        //configure qr code frame for recognition
-        setupQRCodeFrameView()
-        
-        // add buttons
-        setupButtons()
-        
-    }
-    
    
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return .lightContent
