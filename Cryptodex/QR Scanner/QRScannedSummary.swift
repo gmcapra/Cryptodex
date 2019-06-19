@@ -14,13 +14,19 @@ class QRScannedSummary: UIView {
     //get screen dimensions
     let screen = ScreenDimensions()
 
-    //define ui labels
+    //define contact ui labels
+    let contactName = UILabel()
+    
+    //define wallet ui labels
     let verificationLabel = UILabel()
     let addressTypeLabel = UILabel()
     let addressIdentifierLabel = UILabel()
     
+    //define array to store wallet types
+    var walletTypes: Array<String>!
     
-    init(walletType: String, walletAddress: String) {
+    
+    init(isContact: Bool, qrStringValue: String) {
         
         //get headerview for reference
         let headerview = HeaderView(dimensions: screen)
@@ -37,14 +43,152 @@ class QRScannedSummary: UIView {
         
         backgroundColor = .clear
         
-        setupLabels(walletType:walletType,walletAddress:walletAddress)
+        //determine wallet or contact to display
+        if isContact == true {
+            getContactInfo(contactString: qrStringValue)
+            
+        } else {
+            getWalletInfo(walletString: qrStringValue)
+
+        }
+        
         
     }
     
-    func setupLabels(walletType: String, walletAddress: String) {
+    func getContactInfo(contactString: String) {
+        
+        //initialize array to hold pieces of the contact string
+        var piecesArray: Array<String>!
+        piecesArray = []
+        
+        //split the string by the known separator
+        let stringPieces = contactString.split(separator: ":")
+        
+        //add each separate piece to the array
+        for index in stringPieces {
+            piecesArray.append(String(index))
+        }
+        
+        //get the number of wallets stored in the qr code
+        let numberOfWallets = (piecesArray.count - 3)/2
+        print("\nThis contact contains " + String(numberOfWallets) + " wallets.\n")
+        //get the name from the contact
+        let name = piecesArray[1].capitalizingFirstLetter() + " " + piecesArray[2].capitalizingFirstLetter()
+        print("This contact's name is " + name + ".\n")
+        
+        //create array with only the wallet info
+        var contactWalletArray: Array<String>!
+        contactWalletArray = []
+        let walletInfo = numberOfWallets*2 - 1
+        for x in 0...walletInfo {
+            contactWalletArray.append(piecesArray[3 + x])
+        }
+        
+        //add a few more to test ability to handle any number of wallets
+        contactWalletArray.append("bitcoin")
+        contactWalletArray.append("2321432948342")
+        contactWalletArray.append("ethereum")
+        contactWalletArray.append("cjsdkfnrgirowr439834")
+        
+        setupContactLabels(name: name, contactWalletArray: contactWalletArray)
+        
+        
+    }
+    
+    
+    
+    func setupContactLabels(name: String, contactWalletArray: Array<String>) {
+        
+        //Shows the contact name
+        contactName.backgroundColor = .clear
+        contactName.text = name
+        contactName.textColor = UIColor(displayP3Red: 205/255, green: 196/255, blue: 115/255, alpha: 1.0)
+        contactName.textAlignment = NSTextAlignment.center
+        contactName.font = UIFont(name: "Avenir-Light", size: 30)
+        contactName.contentMode = ContentMode.scaleAspectFit
+        
+        addSubview(contactName)
+        
+        //add constraints
+        contactName.translatesAutoresizingMaskIntoConstraints = false
+        contactName.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 20).isActive = true
+        contactName.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -20).isActive = true
+        contactName.heightAnchor.constraint(equalToConstant: 100).isActive = true
+        contactName.centerYAnchor.constraint(equalTo: self.topAnchor, constant: 100).isActive = true
+        
+        var walletTypeToShow: UILabel!
+        var walletAddressToShow: UILabel!
+        var spacing : CGFloat!
+        spacing = 50
+        
+        //create appropriate labels for each wallet
+        for i in stride(from: 0, to: contactWalletArray.count, by: 2) {
+            
+            walletTypeToShow = UILabel()
+            walletTypeToShow.backgroundColor = .clear
+            walletTypeToShow.text = contactWalletArray[i].capitalizingFirstLetter()
+            walletTypeToShow.textColor = .white
+            walletTypeToShow.textAlignment = NSTextAlignment.center
+            walletTypeToShow.font = UIFont(name: "Avenir-Light", size: 20)
+            walletTypeToShow.contentMode = ContentMode.scaleAspectFit
+            addSubview(walletTypeToShow)
+            //add constraints
+            walletTypeToShow.translatesAutoresizingMaskIntoConstraints = false
+            walletTypeToShow.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 20).isActive = true
+            walletTypeToShow.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -20).isActive = true
+            walletTypeToShow.heightAnchor.constraint(equalToConstant: 100).isActive = true
+            walletTypeToShow.centerYAnchor.constraint(equalTo: contactName.bottomAnchor, constant: spacing).isActive = true
+            
+            walletAddressToShow = UILabel()
+            walletAddressToShow.backgroundColor = .clear
+            walletAddressToShow.text = contactWalletArray[i + 1]
+            walletAddressToShow.textColor = .lightGray
+            walletAddressToShow.textAlignment = NSTextAlignment.center
+            walletAddressToShow.font = UIFont(name: "Avenir-Light", size: 20)
+            walletAddressToShow.contentMode = ContentMode.scaleAspectFit
+            addSubview(walletAddressToShow)
+            //add constraints
+            walletAddressToShow.translatesAutoresizingMaskIntoConstraints = false
+            walletAddressToShow.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 20).isActive = true
+            walletAddressToShow.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -20).isActive = true
+            walletAddressToShow.heightAnchor.constraint(equalToConstant: 100).isActive = true
+            walletAddressToShow.centerYAnchor.constraint(equalTo: walletTypeToShow.centerYAnchor, constant: 25).isActive = true
+            
+            spacing += 75
+        }
+        
+        
+    }
+    
+    
+    
+    
+    func getWalletInfo(walletString: String) {
+        
+        let addressType = String((walletString.split(separator: ":")[0]))
+        let addressIdentifier = String((walletString.split(separator: ":")[1]))
+        
+        //DEFINE COINBASE WALLET TYPES
+        walletTypes = ["bitcoincash","ripple","stellar","ethereum_classic","zcash","bitcoin","litecoin","eos","ethereum"]
+        
+        //define final address identifier string
+        let addressString = String(addressIdentifier)
+        var typeString = String(addressType)
+        
+        //Search for match in known wallet types
+        for index in walletTypes {
+            if typeString.contains(index) {
+                typeString = index.capitalizingFirstLetter()
+            }
+        }
+        
+        setupWalletLabels(walletType: typeString, walletAddress: addressString)
+        
+    }
+    
+    func setupWalletLabels(walletType: String, walletAddress: String) {
         
         // Define the label layout
-            
         
         //Shows the type of cryptocurrency wallet that was scanned
         addressTypeLabel.backgroundColor = .clear

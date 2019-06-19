@@ -36,8 +36,6 @@ class QRViewController: UIViewController, AVCaptureMetadataOutputObjectsDelegate
     //get screen dimensions
     let screen = ScreenDimensions()
     
-    //define array to store wallet types
-    var walletTypes: Array<String>!
     
     
     //initialize the viewcontroller
@@ -255,55 +253,29 @@ class QRViewController: UIViewController, AVCaptureMetadataOutputObjectsDelegate
             if metadataObj.stringValue != nil {
                 
                 let qrStringValue = metadataObj.stringValue
-                let addressType = (qrStringValue?.split(separator: ":")[0])
-                let addressIdentifier = (qrStringValue?.split(separator: ":")[1])
                 
-                print("\n")
-                print("\n")
-                print("QR CODE FULL STRING VALUE")
-                print(qrStringValue!)
-                print("\n")
-                print("\n")
-                
-                ///////////////
-                //loop through the top 100 coins .csv and search for name
-                ///////////////
-                //DEFINE COINBASE WALLET TYPES
-                walletTypes = ["bitcoincash","ripple","stellar","ethereum_classic","zcash","bitcoin","litecoin","eos","ethereum"]
-                
-                
-               //define final address identifier string
-                let addressString = String(addressIdentifier!)
-                var typeString = String(addressType!)
-                
-                //Search for match in known wallet types
-                for index in walletTypes {
-                    if typeString.contains(index) {
-                        typeString = index.capitalizingFirstLetter()
-                    }
+                //check for unique contact identifier
+                if String((qrStringValue?.split(separator: ":")[0])!) == "COINDEXUNIQUE_CONTACT" {
+                    contactCodeFound(qrStringValue: qrStringValue!)
+                } else {
+                    walletCodeFound(qrStringValue: qrStringValue!)
                 }
-                
-                //NEED identification of subtypes (i.e. what kind of ethereum token??)
-                
-                
-                qrCodeFound(walletType: typeString, walletID: addressString)
-                
+               
             }
         }
     }
     
-    func qrCodeFound(walletType: String, walletID: String) {
+    func removeScannerView() {
         
         //stop the capture session, remove it from view
         captureSession?.stopRunning()
         videoPreviewLayer?.removeFromSuperlayer()
-        
         //remove scanner from view
         qrscannerview.removeFromSuperview()
         
-        //create the summary view
-        qrscannedsummary = QRScannedSummary(walletType: walletType, walletAddress: walletID)
-        view.addSubview(qrscannedsummary)
+    }
+    
+    func reauthorizeButtons() {
         
         // remove and add appropriate buttons
         flashButton.isEnabled = false
@@ -311,6 +283,43 @@ class QRViewController: UIViewController, AVCaptureMetadataOutputObjectsDelegate
         rescanButton.isEnabled = true
         rescanButton.isHidden = false
         view.bringSubviewToFront(rescanButton)
+        
+    }
+    
+    
+    func contactCodeFound(qrStringValue: String) {
+        
+        print("\n")
+        print("FOUND CONTACT IDENTIFIER")
+        print("\n")
+        print("QR CODE FULL STRING VALUE")
+        print(qrStringValue)
+        print("\n")
+        
+        //create the summary view for the contact
+        removeScannerView()
+        qrscannedsummary = QRScannedSummary(isContact: true, qrStringValue: qrStringValue)
+        view.addSubview(qrscannedsummary)
+        reauthorizeButtons()
+        
+        
+    }
+    
+    
+    func walletCodeFound(qrStringValue: String) {
+        
+        print("\n")
+        print("FOUND WALLET IDENTIFIER")
+        print("\n")
+        print("QR CODE FULL STRING VALUE")
+        print(qrStringValue)
+        print("\n")
+        
+        //create the summary view for the wallet
+        removeScannerView()
+        qrscannedsummary = QRScannedSummary(isContact: false, qrStringValue: qrStringValue)
+        view.addSubview(qrscannedsummary)
+        reauthorizeButtons()
         
         
     }

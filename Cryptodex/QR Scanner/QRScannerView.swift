@@ -41,26 +41,27 @@ class QRScannerView: UIView, AVCaptureMetadataOutputObjectsDelegate {
 
         setupLabels()
         
+        ////////CODE FOR TESTING THE CONTACTQRVIEW//////////////
+        //testQRGenerator()
+
         
-        /*
-        ////////////CODE FOR TESTING THE CONTACTQRVIEW//////////////
         
-        //The generated qr code will show up in the qr scanning viewcontroller when this code is run.
-        //add the scanning frame image for reference
+    }
+    
+    func testQRGenerator() {
+        
+        //shows generated qr code in place of scanner frame
         addSubview(testContactQR)
         self.bringSubviewToFront(testContactQR)
-        //add constraints
         testContactQR.contentMode = ContentMode.scaleAspectFit
         testContactQR.translatesAutoresizingMaskIntoConstraints = false
         testContactQR.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 20).isActive = true
         testContactQR.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -20).isActive = true
         testContactQR.heightAnchor.constraint(equalToConstant: 500).isActive = true
         testContactQR.centerYAnchor.constraint(equalTo: self.centerYAnchor, constant: -50).isActive = true
-        ///////////////////////////////////////////////////////////////
-        */
+
         
     }
-    
     
     func setupLabels() {
 
