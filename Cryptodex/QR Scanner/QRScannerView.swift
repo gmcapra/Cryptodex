@@ -18,9 +18,7 @@ class QRScannerView: UIView, AVCaptureMetadataOutputObjectsDelegate {
     let scanText = UILabel()
     var scanFrame: UIImageView!
     
-    let testContactQR = ContactQRView(contactString: "COINDEXUNIQUE_CONTACT:gianluca:capraro:wallet1:fndfirunueriner232:wallet2:fndskjfsdf3223n5kj")
-    
-    
+    let testContactQR = ContactQRView(contactString: "COINDEXUNIQUE_CONTACT:tyrone:johnson:EOS:120932138214091212243:zcash:xgHRT78734jsrerwrewrwer")
     
     init() {
         

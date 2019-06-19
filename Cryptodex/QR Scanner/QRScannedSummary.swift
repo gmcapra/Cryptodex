@@ -84,11 +84,11 @@ class QRScannedSummary: UIView {
             contactWalletArray.append(piecesArray[3 + x])
         }
         
-        //add a few more to test ability to handle any number of wallets
-        contactWalletArray.append("bitcoin")
-        contactWalletArray.append("2321432948342")
-        contactWalletArray.append("ethereum")
-        contactWalletArray.append("cjsdkfnrgirowr439834")
+        //add a few more to test ability to handle any number of wallets (if needed)
+//        contactWalletArray.append("bitcoin")
+//        contactWalletArray.append("2321432948342")
+//        contactWalletArray.append("ethereum")
+//        contactWalletArray.append("cjsdkfnrgirowr439834")
         
         setupContactLabels(name: name, contactWalletArray: contactWalletArray)
         
@@ -159,8 +159,6 @@ class QRScannedSummary: UIView {
         
         
     }
-    
-    
     
     
     func getWalletInfo(walletString: String) {

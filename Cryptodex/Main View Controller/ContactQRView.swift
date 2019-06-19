@@ -22,7 +22,7 @@ Formatting guidelines are as follows:
           Bitcoin Wallet with address 1dC45dsfi3010EEgnffX
           Ethereum Wallet with address 0cxfRE5434FDJk
  
- - Example string to pass would be:
+ - Example contactString we want to pass would be:
     "COINDEXUNIQUE_CONTACT:Tony:Stark:Bitcoin:1dC45dsfi3010EEgnffX:Ethereum:0cxfRE5434FDJk"
 
  */
