@@ -8,21 +8,25 @@
 
 import UIKit
 
-class ContactsView: UITableView, UITableViewDelegate, UITableViewDataSource {
+class ContactsView: UITableView {
     
 //    var table = UITableView()
     var screen: ScreenDimensions!
     
+    var test: Int {
+        didSet {
+            print("contacts test variable now: \(test)")
+        }
+    }
+    
     override init(frame: CGRect, style: UITableView.Style) {
+        self.test = 0
         super.init(frame: frame, style: style)
     }
     
     func buildTable(dimensions: ScreenDimensions) {
         screen = dimensions
         translatesAutoresizingMaskIntoConstraints = false
-        register(ContactsCell.self, forCellReuseIdentifier: "ContactsCell")
-        delegate = self
-        dataSource = self
         backgroundColor = .lightGray
     }
     
@@ -53,41 +57,6 @@ class ContactsView: UITableView, UITableViewDelegate, UITableViewDataSource {
         ["B3424","B5491","B6374","B3424","B5491","B6374","B3424","B5491","B6374"],
         ["C4444","C7338","C9828","C4444","C7338","C9828","C4444","C7338","C9828"],
     ]
-    
-    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        let sectionHeader = ContactsSection()
-        sectionHeader.buildView(dimensions: screen)
-        sectionHeader.label.text = headers[section]
-        return sectionHeader
-    }
-    
-    func numberOfSections(in tableView: UITableView) -> Int {
-        return wallets.count
-    }
-    
-    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return screen.headerHeight*(2/3)
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell:ContactsCell = tableView.dequeueReusableCell(withIdentifier: "ContactsCell") as! ContactsCell
-        cell.buildView(dimensions: screen)
-        cell.cellLabel.text = wallets[indexPath.section][indexPath.row]
-        return cell
-    }
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return wallets[section].count
-    }
-    
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return screen.headerHeight*(3/4)
-    }
-    
-    @objc func setConstraint(to: AnyObject, from: AnyObject, on: NSLayoutConstraint.Attribute, and: NSLayoutConstraint.Attribute, mult: CGFloat, constant: CGFloat) {
-        let constraint = NSLayoutConstraint(item: to, attribute: on, relatedBy: .equal, toItem: from, attribute: and, multiplier: mult, constant: constant)
-        addConstraints([constraint])
-    }
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")

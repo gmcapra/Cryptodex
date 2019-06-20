@@ -14,10 +14,18 @@ class HeaderView: UIView {
     var addContact = UIButton()
 
     let appName = UILabel()
+    
+    var test: Int {
+        didSet {
+            print("header test variable now: \(test)")
+        }
+    }
 
     var screen: ScreenDimensions!
 
     init(dimensions: ScreenDimensions) {
+        self.test = 0
+        
         screen = dimensions
         let viewOrigin = CGPoint(x: 0, y: screen.statusBarHeight)
         let viewSize = CGSize(width: screen.width, height: screen.headerHeight)
@@ -29,7 +37,7 @@ class HeaderView: UIView {
     }
     
     func buildView() {
-        
+
         for btn in [scanButton, addContact] {
             addSubview(btn)
             btn.translatesAutoresizingMaskIntoConstraints = false
