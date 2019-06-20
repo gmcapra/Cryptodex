@@ -1,7 +1,6 @@
 # Cryptodex
-# Status     - Currently in Development
 # Created by - Max Sergent and Gianluca Capraro
 
-Cryptodex is an iOS App for managing all of your crypto contacts' wallet addresses.
+Cryptodex is a standalone app that can scan cryptocurrency qr code wallet addresses from coinbase. This app is limited in functionality and is used as a back-up reference and prototype demonstration to build-out a more complete commercial application.
 
-This repository contains the main XCode Project files, image assets, and associated data files that contribute to the Cryptodex app.
+This repository contains the prototype XCode project files. 
